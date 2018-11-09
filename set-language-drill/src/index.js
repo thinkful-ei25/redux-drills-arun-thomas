@@ -7,4 +7,3 @@ console.log(store.getState());
 store.dispatch(setLanguage('de'));
 // Should output {language: 'de'}
 console.log(store.getState());
-
