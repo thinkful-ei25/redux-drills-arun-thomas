@@ -23,17 +23,17 @@ export const crudReducer = (state=initialState, action) => {
         //   id: 2,
         //   name: 'Hi',
         // }
-        const newItems = state.items.map((item) => {
-            if (item.id === action.item.id) {
-                return action.item;
-            }
+        // const newItems = state.items.map((item) => {
+        //     if (item.id === action.item.id) {
+        //         return action.item;
+        //     }
 
-            return item;
-        });
+        //     return item;
+        // });
 
         return {
             ...state,
-            items: newItems,
+            items: state.items.map(item => item.id === action.item.id ? action.item : item)
         };
     }
     else if (action.type === DELETE_ITEM) {
