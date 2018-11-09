@@ -37,15 +37,15 @@ export const crudReducer = (state=initialState, action) => {
         };
     }
     else if (action.type === DELETE_ITEM) {
-        const newItems = state.items.filter((item) => {
-            if (item.id !== action.item.id) {
-                return true;
-            }
-            return false;
-        });
+        // const newItems = state.items.filter((item) => {
+        //     if (item.id !== action.item.id) {
+        //         return true;
+        //     }
+        //     return false;
+        // });
         return {
             ...state,
-            items: newItems,
+            items: state.items.filter(item => item.id !== action.item.id)
         };
     }
     return state;
