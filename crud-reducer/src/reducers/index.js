@@ -18,6 +18,23 @@ export const crudReducer = (state=initialState, action) => {
         return newState;
     }
     else if (action.type === UPDATE_ITEM) {
+        // Create a new array with all the same items, except for the one where the id matches
+        // action.item = {
+        //   id: 2,
+        //   name: 'Hi',
+        // }
+        const newItems = state.items.map((item) => {
+            if (item.id === action.item.id) {
+                return action.item;
+            }
+
+            return item;
+        });
+
+        return {
+            ...state,
+            items: newItems,
+        };
     }
     else if (action.type === DELETE_ITEM) {
     }
